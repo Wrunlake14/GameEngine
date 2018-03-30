@@ -1,0 +1,14 @@
+﻿https://app.pluralsight.com/player?course=dotnet-core-testing-code-xunit-dotnet-getting-started&author=jason-roberts&name=862944d9-2b33-4e2d-b843-4733a48a0a7a&clip=1&mode=live
+Jason Roberts 
+1) Unit test one class or small unit of classess
+2)Unit test, ingegration test, UI test
+3) TEst behavior Public interface and not Private methods
+4) AAA- Arrange- setting things up,  create test data list
+5) Act- Execute production code. call methods
+6) Assert Check results pass/fail
+
+  The TestData.csv  (TestClass1 and TestClass2)->may be file properties to be set to copyalways.
+
+  VSTS:
+  https://blogs.perficient.com/microsoft/2016/08/unit-test-with-net-core-and-vsts/
+  I'm putting this on Git and into VSTS
