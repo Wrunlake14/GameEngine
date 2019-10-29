@@ -15,6 +15,7 @@ namespace GameEngine.Models
             {
                 if (!IsValidBossName(name))
                 {
+                    
                     throw new EnemyCreationException(
                         $"{name} is not a valid name for a Boss enemy, Boss enemy names must end with 'King' or 'Queen'",
                         name);

@@ -11,8 +11,11 @@ namespace GameEngine.Models
         
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        // fullname property
         public string FullName => $"{FirstName} {LastName}";
         public string Nickname { get; set; }
+
+        // review this property.
         public int Health
         {
             get => _health;
@@ -23,12 +26,12 @@ namespace GameEngine.Models
             }
         }
         public bool IsNoob { get; set; }
+
         public List<string> Weapons { get; set; }
 
         public event EventHandler<EventArgs> PlayerSlept;
    
         // constructor
-
         public PlayerCharacter()
         {
             FirstName = GenerateRandomFirstName();
@@ -37,6 +40,7 @@ namespace GameEngine.Models
 
             CreateStartingWeapons();
         }
+
 
         public void Sleep()
         {           
@@ -51,6 +55,7 @@ namespace GameEngine.Models
         {
             var rnd = new Random();
 
+            // why next?? Need to findout
             return rnd.Next(1, 101);
         }
 
@@ -59,6 +64,11 @@ namespace GameEngine.Models
         {
             PlayerSlept?.Invoke(this, e);
         }
+
+/// <summary>
+/// from Gmestaate
+/// </summary>
+/// <param name="damage"></param>
 
         public void TakeDamage(int damage)
         {

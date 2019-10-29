@@ -20,7 +20,7 @@ namespace GameEngine.Tests
         public PlayerCharacterShould(ITestOutputHelper output)
         {
            _output = output;
-            sut = new PlayerCharacter();
+            sut = new PlayerCharacter();//C:\Users\Me\Documents\GitHub\XUnit_Projects_All\GameEngine\GameEngine\Models\NonPlayerCharacter.cs
         }
 
 
@@ -38,6 +38,7 @@ namespace GameEngine.Tests
           
            
             Assert.True(sut.IsNoob);
+            
         }
 
         [Fact]
@@ -47,8 +48,13 @@ namespace GameEngine.Tests
             sut.FirstName = "Sarah";
             sut.LastName = "Smith";
 
-            Assert.Equal("Sarah Smith", sut.FullName);
-        }
+            Assert.Equal( "Sarah Smith", sut.FullName);
+            Assert.StartsWith("Sarah", sut.FullName);
+            Assert.EndsWith("Smith", sut.FullName);
+            Assert.Equal("sAraH smith", sut.FullName,  ignoreCase: true);
+           Assert.Contains("ah Sm", sut.FullName);
+
+            }
 
         [Fact]
         public void StartWithDefaultHealth()
@@ -86,14 +92,14 @@ namespace GameEngine.Tests
         }
 
 
-        //[Fact]
-        //public void DoesNotContainStaffofWonder()
-        //{
-        //    PlayerCharacter sut = new PlayerCharacter();
+        [Fact]
+        public void DoesNotContainStaffofWonder()
+        {
+            PlayerCharacter sut = new PlayerCharacter();
 
 
-        //    Assert.DoesNotContain("Staff of Wonder", sut.Weapons);
-        //}
+            Assert.DoesNotContain("Staff of Wonder", sut.Weapons);
+        }
 
         [Fact]
         public void HaveAtLeastOneKindOfSword()
@@ -139,6 +145,7 @@ namespace GameEngine.Tests
             Assert.Raises<EventArgs>(
                 handler => sut.PlayerSlept += handler,
                 handler => sut.PlayerSlept -= handler,
+                // this cause the event to be raised
                 () => sut.Sleep());
         }
 

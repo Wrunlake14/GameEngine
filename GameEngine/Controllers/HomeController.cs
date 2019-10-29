@@ -12,6 +12,9 @@ namespace GameEngine.Controllers
     {
         public IActionResult Index()
         {
+           // IList<int> intList = new List<int> { 1, 2, 3, 4, 5 };
+          
+
             return View();
         }
 

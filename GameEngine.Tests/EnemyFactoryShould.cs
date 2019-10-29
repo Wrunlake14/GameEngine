@@ -13,6 +13,7 @@ namespace GameEngine.Tests
             var sut = new EnemyFactory();
             Enemy enemy = sut.Create("Zombie");
             Assert.IsType<NormalEnemy>(enemy);
+            
 
         }
 
@@ -102,8 +103,12 @@ namespace GameEngine.Tests
 
 
             Assert.Throws<ArgumentNullException>(() => sut.Create(null));
+
+            //
             Assert.Throws<ArgumentNullException>("name",() => sut.Create(null));
-        }
+
+            //  Assert.Throws<ArgumentNullException>("isBoss", () => sut.Create(null));
+            }
 
         [Fact]
         public void OnlyAllowKingOrQueenBossEnemies()
